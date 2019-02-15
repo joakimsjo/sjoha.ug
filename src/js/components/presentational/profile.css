@@ -31,6 +31,12 @@ aside {
   position: relative;
 }
 
+@media (max-width: 800px) {
+  aside {
+    margin-top: 0px;
+  }
+}
+
 aside ul {
   padding-inline-start: 20px;
 }
