@@ -34,9 +34,7 @@ const Profile = ({
     <div className={style.profileContainer}>
       <aside className={style.profileCard}>
         <header>
-          <a href={profileUrl}>
-            <img src={profileImage} />
-          </a>
+          <img src={profileImage} />
 
           <h1> {name}</h1>
           <h2> {job}</h2>
