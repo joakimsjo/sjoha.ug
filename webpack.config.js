@@ -46,5 +46,10 @@ module.exports = {
       template: "./src/index.html",
       filename: "./index.html"
     })
-  ]
+  ],
+  devServer: {
+    inline:true,
+    host: '127.0.0.1',
+    port: (process.env.PORT || 8080)
+  }
 };
