@@ -1,6 +1,11 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
+  output: {
+    path: __dirname + '/dist', // Note: Physical files are only output by the production build task `npm run build`.
+    publicPath: '',
+    filename: 'bundle.js'
+  },
   module: {
     rules: [
       {
@@ -36,7 +41,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpg)$/,
+        test: /\.(png|jpg|svg)$/,
         loader: 'url-loader'
       }
     ]

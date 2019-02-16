@@ -22,11 +22,11 @@ module.exports = {
       },
       {
         url: "https://www.linkedin.com/in/sjøhaug-joakim/",
-        icon: "/src/assets/in.svg"
+        icon: require('./in.svg')
       },
       {
         url: "mailto:joakim@sjoha.ug",
-        icon: "/src/assets/mail.svg"
+        icon: require('./mail.svg')
       },
     ]
   }
