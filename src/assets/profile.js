@@ -3,7 +3,6 @@ module.exports = {
     name: "Joakim Sjøhaug",
     profileImage:
       "https://pbs.twimg.com/profile_images/706566207353319429/Ln9MkVK7_400x400.jpg",
-    profileUrl: "https://github.com/joakimsjo",
     job: "Computer Science Student",
     title: "Hi there!",
     description:

@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 const Profile = ({
   name,
   profileImage,
-  profileUrl,
   job,
   title,
   description,

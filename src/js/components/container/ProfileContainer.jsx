@@ -10,7 +10,6 @@ class ProfileContainer extends React.Component {
         <Profile
           name={user.name}
           profileImage={user.profileImage}
-          profileUrl={user.profileImage}
           job={user.job}
           title={user.title}
           description={user.description}
