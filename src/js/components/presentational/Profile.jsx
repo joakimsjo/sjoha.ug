@@ -29,9 +29,14 @@ const Profile = ({
   const descriptionSplitted = description.split('\n').map((t, i) => {
     return <p key={i} style={{margin: "0px"}}>{t}</p>
   })
+
+  setTimeout(() => {
+    document.getElementById('profile').classList.add(style.afterLoad)
+  }, 300)   
+
   return (
     <div className={style.profileContainer}>
-      <aside className={style.profileCard}>
+      <aside id="profile" className={`${style.profile}`}>
         <header>
           <img src={profileImage} />
 
