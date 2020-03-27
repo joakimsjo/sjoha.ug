@@ -15,13 +15,13 @@ jobs:
           node-version: "10.x"
       - name: Npm install
         run: npm install
-      - name: Build
-        run: npm run build
+      - name: Prod
+        run: npm run prod
       - name: Copy
         uses: garygrossgarten/github-action-scp@release
         with:
           local: build
-          remote: projects/sjoha.ug/public
+          remote: sjoha.ug/public
           username: ${{ secrets.username }}
           host: ${{ secrets.host }}
           privateKey: ${{ secrets.private_key }}
@@ -30,6 +30,6 @@ jobs:
         with:
           host: ${{ secrets.host }}
           username: ${{ secrets.username }}
-          key: ${{secrets.private_key}}
+          key: ${{ secrets.private_key }}
           script: |
-            ${{secrets.rebuild_container }}
+            ${{ secrets.rebuild_container }}
