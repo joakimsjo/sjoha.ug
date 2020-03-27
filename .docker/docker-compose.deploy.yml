@@ -1,0 +1,14 @@
+version: "3.5"
+services:
+  web_sjohaug:
+    build:
+      context: ../
+      dockerfile: .docker/dockerfile.deploy
+    ports:
+      - "11000:80"
+    environment:
+      - CONTAINER=true
+
+networks:
+  default:
+    name: stella_network
