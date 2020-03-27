@@ -1,0 +1,11 @@
+version: "3.5"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: dockerfile.production
+    ports:
+      - "11000:80"
+    environment:
+      - CONTAINER=true
+    hostname: frontend
