@@ -1,10 +1,11 @@
+const { join } = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   output: {
-    path: __dirname + '/dist', // Note: Physical files are only output by the production build task `npm run build`.
-    publicPath: '',
-    filename: 'bundle.js'
+    path: join(__dirname, "..", "/dist"),
+    publicPath: "/",
+    filename: "bundle.js"
   },
   module: {
     rules: [
@@ -28,7 +29,7 @@ module.exports = {
         use: [
           {
             loader: "style-loader"
-          }, 
+          },
           {
             loader: "css-loader",
             options: {
@@ -37,24 +38,26 @@ module.exports = {
               localIdentName: "[name]_[local]_[hash:base64]",
               sourceMap: true
             }
-        }
+          }
         ]
       },
       {
         test: /\.(png|jpg|svg)$/,
-        loader: 'url-loader'
+        loader: "url-loader"
       }
     ]
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: "./src/index.html",
-      filename: "./index.html"
+      filename: "index.html",
+      template: join(__dirname, "..", "src/", "index.html"),
+      inject: true,
+      minify: true
     })
   ],
   devServer: {
-    inline:true,
-    host: '127.0.0.1',
-    port: (process.env.PORT || 8080)
+    inline: true,
+    host: "127.0.0.1",
+    port: process.env.PORT || 8080
   }
 };

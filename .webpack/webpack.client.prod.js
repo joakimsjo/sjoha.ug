@@ -5,18 +5,15 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
-const isDev = false;
-const isHmr = process.env.NODE_ENV === "hot";
-
 module.exports = {
   devtool: false,
   entry: {
-    main: "./src/index.js",
+    main: join(__dirname, "..", "src", "index.js"),
     vendor: ["react", "react-dom"]
   },
   mode: "production",
   output: {
-    path: join(__dirname, "public"),
+    path: join(__dirname, "..", "public"),
     filename: "js/[name].bundle.[hash].js",
     chunkFilename: "chunks/[name].chunk.[hash].js",
     publicPath: "/"
@@ -120,7 +117,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       filename: "index.html",
-      template: join(__dirname, "src/", "index.html"),
+      template: join(__dirname, "..", "src/", "index.html"),
       inject: true,
       minify: true
     }),

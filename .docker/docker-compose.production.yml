@@ -2,13 +2,13 @@ version: "3.5"
 services:
   web_sjohaug:
     build:
-      context: .
-      dockerfile: dockerfile.production
+      context: ../
+      dockerfile: .docker/dockerfile.production
     ports:
       - "11000:80"
     environment:
       - CONTAINER=true
 
 networks:
-    default:
-        name: stella_network
+  default:
+    name: stella_network
