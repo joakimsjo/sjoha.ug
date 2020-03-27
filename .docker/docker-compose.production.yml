@@ -1,6 +1,6 @@
 version: "3.5"
 services:
-  web:
+  web_sjohaug:
     build:
       context: .
       dockerfile: dockerfile.production
@@ -8,4 +8,7 @@ services:
       - "11000:80"
     environment:
       - CONTAINER=true
-    hostname: frontend
+
+networks:
+    default:
+        name: stella_network
