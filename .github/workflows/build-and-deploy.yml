@@ -1,0 +1,35 @@
+name: Build and deploy
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: "10.x"
+      - name: Npm install
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Copy
+        uses: garygrossgarten/github-action-scp@release
+        with:
+          local: build
+          remote: projects/sjoha.ug/public
+          username: ${{ secrets.username }}
+          host: ${{ secrets.host }}
+          privateKey: ${{ secrets.private_key }}
+      - name: Deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.host }}
+          username: ${{ secrets.username }}
+          key: ${{secrets.private_key}}
+          script: |
+            ${{secrets.rebuild_container }}
