@@ -20,7 +20,7 @@ jobs:
       - name: Copy
         uses: garygrossgarten/github-action-scp@release
         with:
-          local: build
+          local: public
           remote: sjoha.ug/public
           username: ${{ secrets.username }}
           host: ${{ secrets.host }}
