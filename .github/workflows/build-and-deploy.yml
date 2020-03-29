@@ -10,11 +10,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build and tag docker image
-      - run: docker build . -f .docker/dockerfile.production -t docker.pkg.github.com/joakimsjo/sjoha.ug/web:latest
+        run: docker build . -f .docker/dockerfile.production -t docker.pkg.github.com/joakimsjo/sjoha.ug/web:latest
       - name: Docker login
-      - run: docker login -u joakimsjo -p {{ secrets.GITHUB_TOKEN }} docker.pkg.github.com
+        run: docker login -u joakimsjo -p {{ secrets.GITHUB_TOKEN }} docker.pkg.github.com
       - name: Push docker image
-      - run: docker push docker.pkg.github.com/joakimsjo/sjoha.ug/web:latest
+        run: docker push docker.pkg.github.com/joakimsjo/sjoha.ug/web:latest
       - name: Restart container
         uses: appleboy/ssh-action@master
         with:
