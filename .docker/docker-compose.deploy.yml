@@ -1,9 +1,7 @@
 version: "3.5"
 services:
   web_sjohaug:
-    build:
-      context: ../
-      dockerfile: .docker/dockerfile.deploy
+    image: docker.pkg.github.com/joakimsjo/sjoha.ug/web:latest
     ports:
       - "11000:80"
     environment:

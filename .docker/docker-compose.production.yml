@@ -1,6 +1,7 @@
 version: "3.5"
 services:
   web_sjohaug:
+    image: web_sjohaug:latest
     build:
       context: ../
       dockerfile: .docker/dockerfile.production

@@ -1,4 +1,4 @@
-name: Build and deploy
+name: Build and deploy docker image
 
 on:
   push:
@@ -9,23 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: "10.x"
-      - name: Npm install
-        run: npm install
-      - name: Prod
-        run: npm run prod
-      - name: Copy
-        uses: garygrossgarten/github-action-scp@release
-        with:
-          local: public
-          remote: sjoha.ug/public
-          username: ${{ secrets.username }}
-          host: ${{ secrets.host }}
-          privateKey: ${{ secrets.private_key }}
-      - name: Deploy
+      - name: Build and tag docker image
+      - run: docker build . -f .docker/dockerfile.production -t docker.pkg.github.com/joakimsjo/sjoha.ug/web:latest
+      - name: Docker login
+      - run: docker login -u joakimsjo -p {{ secrets.GITHUB_TOKEN }} docker.pkg.github.com
+      - name: Push docker image
+      - run: docker push docker.pkg.github.com/joakimsjo/sjoha.ug/web:latest
+      - name: Restart container
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.host }}
