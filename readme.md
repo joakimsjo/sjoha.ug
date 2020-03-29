@@ -1,6 +1,6 @@
 # 🏠Sjoha.ug
 
-![Build and deploy](https://github.com/JoakimSjo/sjoha.ug/workflows/Build%20and%20deploy/badge.svg)
+![Build and deploy docker image](https://github.com/JoakimSjo/sjoha.ug/workflows/Build%20and%20deploy%20docker%20image/badge.svg)
 
 ---
 
