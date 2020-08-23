@@ -1,4 +1,4 @@
-name: Build and deploy docker image
+name: Build and push docker image
 
 on:
   push:
@@ -20,11 +20,3 @@ jobs:
           dockerfile: .docker/dockerfile.production
           tag_with_sha: true
           tag_with_ref: true
-      - name: Restart container
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.host }}
-          username: ${{ secrets.username }}
-          key: ${{ secrets.private_key }}
-          script: |
-            ${{ secrets.rebuild_container }}
