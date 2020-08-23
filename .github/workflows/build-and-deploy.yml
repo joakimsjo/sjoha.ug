@@ -8,15 +8,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Build and tag docker image
-        run: docker build . -f .docker/dockerfile.production -t docker.pkg.github.com/joakimsjo/sjoha.ug/web:latest
-      - name: Docker login
-        run: docker login -u joakimsjo -p "${DOCKER_PASSWORD}" docker.pkg.github.com
-        env:
-          DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
-      - name: Push docker image
-        run: docker push docker.pkg.github.com/joakimsjo/sjoha.ug/web:latest
+      - name: Checking out code
+        uses: actions/checkout@v2
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v1
+        with:
+          username: joakimsjo
+          password: ${{ secrets.GITHUB_TOKEN }}
+          repository: joakimsjo/sjoha.ug/web
+          registry: docker.pkg.github.com
+          dockerfile: .docker/dockerfile.production
+          tag_with_sha: true
+          tag_with_ref: true
       - name: Restart container
         uses: appleboy/ssh-action@master
         with:
