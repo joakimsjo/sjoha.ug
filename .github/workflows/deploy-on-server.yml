@@ -13,8 +13,7 @@ jobs:
       - name: SSH into server and launching update script
         uses: appleboy/ssh-action@master
         with:
-            host: ${{ secrets.host }}
-            username: ${{ secrets.username }}
-            key: ${{ secrets.private_key }}
-            script: |
-            ${{ secrets.rebuild_container }}
+          host: ${{ secrets.host }}
+          username: ${{ secrets.username }}
+          key: ${{ secrets.private_key }}
+          script: ${{ secrets.rebuild_container }}
