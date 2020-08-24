@@ -4,7 +4,6 @@
 
 body {
   background-color: #e8e8e8;
-  background-image: url(./../../assets/bg1.png);
-  background-size: 'cover';
-  overflow: 'hidden';
+  background-size: "cover";
+  overflow: "hidden";
 }
