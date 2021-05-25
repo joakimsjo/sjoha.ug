@@ -22,7 +22,7 @@
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/plugin-transform-runtime": "^7.11.0",
     "babel-loader": "^8.0.5",
-    "css-loader": "^2.1.0",
+    "css-loader": "^5.2.6",
     "cross-env": "^5.2.1",
     "express": "^4.16.4",
     "html-loader": "^1.2.1",
