@@ -8,6 +8,7 @@ import {
   Image,
   Text,
   useBreakpointValue,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { EmailIcon } from "@chakra-ui/icons";
 import {
@@ -22,6 +23,9 @@ import { FaGithub, FaTwitter } from "react-icons/fa";
 import LinkButton from "./LinkButton";
 
 const Presentation = () => {
+  const textColor = useColorModeValue("dark", "#CDE2F4");
+  const seperatorColor = useColorModeValue("#354B5E", "#7FBFF6");
+
   const minH = useBreakpointValue({
     base: undefined,
     md: "100vh",
@@ -36,7 +40,7 @@ const Presentation = () => {
         mt="8"
         minW={["90%", "350px"]}
         maxW={["90%", "400px"]}
-        color="#CDE2F4"
+        color={textColor}
       >
         <Image
           src="https://pbs.twimg.com/profile_images/1289988561127841792/PIKjur9t_400x400.jpg"
@@ -51,10 +55,11 @@ const Presentation = () => {
           <Text fontSize="lg">{HERO_TEXT}</Text>
           <Text fontSize="md">{HERO_SECONDARY_TEXT}</Text>
         </VStack>
-        <Flex direction="row" align="center" pb="4">
-          <Divider flex="1" orientation="horizontal" color="red" />
-
-          <Text>social</Text>
+        <Flex direction="row" align="center" w="100%">
+          <Divider flex="1" orientation="horizontal" />
+          <Text mx="2" color={seperatorColor}>
+            Social Links
+          </Text>
           <Divider flex="1" orientation="horizontal" />
         </Flex>
         <HStack
@@ -67,6 +72,7 @@ const Presentation = () => {
           <LinkButton
             key="github"
             to={GITHUB_PAGE_URL ?? ""}
+            color="white"
             backgroundColor="black"
             _hover={{ bg: "blackAlpha.700" }}
             leftIcon={<FaGithub />}

@@ -1,9 +1,9 @@
 import * as React from "react";
-import { ChakraProvider, Box, Image } from "@chakra-ui/react";
+import { ChakraProvider, Box } from "@chakra-ui/react";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import theme from "./theme/index";
-import Illustration from "./static/images/background.svg";
 import Presentation from "./components/Presentation";
+import PageBackground from "./components/PageBackground";
 
 export const App = () => (
   <ChakraProvider theme={theme}>
@@ -16,13 +16,7 @@ export const App = () => (
     />
     <Box textAlign="center">
       <Presentation />
-      <Image
-        zIndex="-1"
-        position="fixed"
-        bottom="0"
-        src={Illustration}
-        minW="100%"
-      />
+      <PageBackground />
     </Box>
   </ChakraProvider>
 );
