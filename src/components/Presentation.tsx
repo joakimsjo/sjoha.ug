@@ -57,7 +57,7 @@ const Presentation = () => {
           boxSize="200px"
         />
         <Heading size="lg">Hi, there! 👋🏻</Heading>
-        <VStack spacing="0">
+        <VStack spacing="0" fontWeight="medium">
           <Text fontSize="lg">{HERO_TEXT}</Text>
           <Text fontSize="md">{HERO_SECONDARY_TEXT}</Text>
         </VStack>
