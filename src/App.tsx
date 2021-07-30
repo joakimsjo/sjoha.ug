@@ -11,8 +11,8 @@ export const App = () => (
       justifySelf="flex-end"
       zIndex="2"
       position="absolute"
-      right="2em"
-      top="1em"
+      right={["0.5em", "2em"]}
+      top={["0.5em", "1em"]}
     />
     <PageBackground />
     <Portal>
