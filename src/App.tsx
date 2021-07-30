@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ChakraProvider, Box } from "@chakra-ui/react";
+import { ChakraProvider, Box, Portal } from "@chakra-ui/react";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import theme from "./theme/index";
 import Presentation from "./components/Presentation";
@@ -9,14 +9,16 @@ export const App = () => (
   <ChakraProvider theme={theme}>
     <ColorModeSwitcher
       justifySelf="flex-end"
-      zIndex="1"
+      zIndex="2"
       position="absolute"
       right="2em"
       top="1em"
     />
-    <Box textAlign="center">
-      <Presentation />
-      <PageBackground />
-    </Box>
+    <PageBackground />
+    <Portal>
+      <Box textAlign="center">
+        <Presentation />
+      </Box>
+    </Portal>
   </ChakraProvider>
 );

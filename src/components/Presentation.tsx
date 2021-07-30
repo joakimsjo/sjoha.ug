@@ -32,7 +32,13 @@ const Presentation = () => {
   });
 
   return (
-    <Flex justify="center" align={["flex-start", "center"]} minH={minH}>
+    <Flex
+      justify="center"
+      align={["flex-start", "center"]}
+      minH={minH}
+      position="relative"
+      zIndex="1"
+    >
       <VStack
         spacing={4}
         borderRadius="16"
