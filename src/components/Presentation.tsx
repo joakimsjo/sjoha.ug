@@ -10,21 +10,21 @@ import {
   useBreakpointValue,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { EmailIcon } from "@chakra-ui/icons";
 import {
   HERO_TEXT,
   HERO_SECONDARY_TEXT,
   GITHUB_PAGE_URL,
   TWITTER_PAGE_URL,
-  MAIL_ADDRESS,
+  LINKEDIN_PAGE_URL,
 } from "../utils/constants";
-import { FaGithub, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 import LinkButton from "./LinkButton";
 
 const Presentation = () => {
   const textColor = useColorModeValue("dark", "#CDE2F4");
   const seperatorColor = useColorModeValue("#354B5E", "#7FBFF6");
+  const buttonSize = useBreakpointValue({ base: "sm", md: "md" });
 
   const minH = useBreakpointValue({
     base: undefined,
@@ -42,8 +42,8 @@ const Presentation = () => {
       <VStack
         spacing={4}
         borderRadius="16"
-        p="4"
         mt="8"
+        p="4"
         minW={["90%", "350px"]}
         maxW={["90%", "400px"]}
         color={textColor}
@@ -77,16 +77,18 @@ const Presentation = () => {
         >
           <LinkButton
             key="github"
+            size={buttonSize}
             to={GITHUB_PAGE_URL ?? ""}
             color="white"
             backgroundColor="black"
             _hover={{ bg: "blackAlpha.700" }}
             leftIcon={<FaGithub />}
           >
-            Github
+            GitHub
           </LinkButton>
           <LinkButton
             key="twitter"
+            size={buttonSize}
             to={TWITTER_PAGE_URL ?? ""}
             colorScheme="twitter"
             leftIcon={<FaTwitter />}
@@ -95,11 +97,12 @@ const Presentation = () => {
           </LinkButton>
           <LinkButton
             key="mail"
-            to={`mailto:${MAIL_ADDRESS}`}
+            size={buttonSize}
+            to={LINKEDIN_PAGE_URL ?? ""}
             colorScheme="twitter"
-            leftIcon={<EmailIcon />}
+            leftIcon={<FaLinkedin />}
           >
-            Mail
+            Linkedin
           </LinkButton>
         </HStack>
       </VStack>
