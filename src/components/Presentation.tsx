@@ -28,13 +28,20 @@ const Presentation = () => {
 
   const minH = useBreakpointValue({
     base: undefined,
-    md: "100vh",
+    md: "90vh",
   });
+
+  const marginT = useBreakpointValue({
+    base: "8",
+    md: "0",
+  });
+
+  console.log(marginT);
 
   return (
     <Flex
       justify="center"
-      align={["flex-start", "center"]}
+      align={["center", "center"]}
       minH={minH}
       position="relative"
       zIndex="1"
@@ -42,11 +49,12 @@ const Presentation = () => {
       <VStack
         spacing={4}
         borderRadius="16"
-        mt="8"
-        p="4"
+        mt={marginT}
+        px="4"
         minW={["90%", "350px"]}
         maxW={["90%", "400px"]}
         color={textColor}
+        zIndex="1"
       >
         <Image
           src="https://pbs.twimg.com/profile_images/1289988561127841792/PIKjur9t_400x400.jpg"
@@ -96,7 +104,7 @@ const Presentation = () => {
             Twitter
           </LinkButton>
           <LinkButton
-            key="mail"
+            key="linkedin"
             size={buttonSize}
             to={LINKEDIN_PAGE_URL ?? ""}
             colorScheme="twitter"
