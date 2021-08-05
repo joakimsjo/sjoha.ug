@@ -16,6 +16,7 @@ import {
   GITHUB_PAGE_URL,
   TWITTER_PAGE_URL,
   LINKEDIN_PAGE_URL,
+  PROFILE_IMAGE_URL,
 } from "../utils/constants";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
@@ -57,7 +58,7 @@ const Presentation = () => {
         zIndex="1"
       >
         <Image
-          src="https://pbs.twimg.com/profile_images/1289988561127841792/PIKjur9t_400x400.jpg"
+          src={PROFILE_IMAGE_URL}
           borderRadius="full"
           border="solid"
           borderWidth="4px"
